@@ -1,0 +1,16 @@
+SELECT DISTINCT
+    idProduct as 'ID',
+    stock.Name, 
+    Supplier,
+    product.Price as 'Buying price',
+    stock.price as 'Sales Price',
+    Quantity,
+    (stock.Price - product.Price) * Quantity as  'Profit all Devices',
+    (stock.Price - product.Price) as  'Profit per Device'
+FROM
+    stock 
+        JOIN
+    product ON product.idProduct = stock.idStock
+    where
+    (stock.Price - product.Price) > 500
+   
