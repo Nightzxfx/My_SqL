@@ -14,3 +14,16 @@ FROM
     where
     (stock.Price - product.Price) > 500
    
+-------------------------------------------------------------
+
+SELECT 
+    product.name as 'Product',
+    supplier.name as'Made by',
+    supplier.Country as 'Oring',
+    stock.Quantity as 'Amount'
+FROM
+    product
+        JOIN
+    supplier ON supplier.name = product.Supplier
+        JOIN
+    stock ON stock.name = product.name
