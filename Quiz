@@ -1,0 +1,11 @@
+SELECT 
+	TeacherName as 'Teacher',
+    CoursesName as 'Subject',
+    concat(CoursesName, " hard as ", Difficult, "%") as 'Difficult from 0 to 100'
+FROM
+    quiz.courses
+INNER JOIN teachers 
+on teachers.Course = courses.CoursesName
+Where Difficult <= 60 and CoursesName like '%l%'
+Order by  CoursesName  DESC;
+   
